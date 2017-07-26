@@ -26,14 +26,14 @@
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Component mounted.');
 
             Echo.join(`chat`)
                 .here((users) => {
                     this.users = users;
                 })
                 .joining((user) => {
-                    console.log("Enter us", user.name);
+                    console.log("Joined us", user.name);
                     this.users.push(user);
                 })
                 .leaving((user) => {
@@ -42,7 +42,6 @@
                     users = _.reject(users, (u) => {
                         return u.id === user.id;
                     });
-
                     this.users = users;
                 });
 

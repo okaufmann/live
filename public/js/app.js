@@ -42750,7 +42750,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         Echo.join("chat").here(function (users) {
             _this.users = users;
         }).joining(function (user) {
-            console.log("Enter us", user.name);
+            console.log("Joined us", user.name);
             _this.users.push(user);
         }).leaving(function (user) {
             console.log("Left us", user.name);
@@ -42758,7 +42758,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             users = _.reject(users, function (u) {
                 return u.id === user.id;
             });
-
             _this.users = users;
         });
 

@@ -3,11 +3,11 @@
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [
 		{
-			"appId": "1d2c11a868e871f2",
-			"key": "de84a4ab547595719aa15adef66ff657"
+			"appId": "061e70d40f2074f1",
+			"key": "57fe6a4ede23cd77ea7b5097b84b6f26"
 		}
 	],
-	"database": "sqlite",
+	"database": "redis",
 	"databaseConfig": {
 		"redis": {},
 		"sqlite": {

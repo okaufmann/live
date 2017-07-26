@@ -15,9 +15,9 @@
 
     <script type="text/javascript">
         window.Laravel = <?php echo json_encode([
-            'wsHost'       => config('broadcasting.connections.pusher.options.host'),
-            'wsPort'       => config('broadcasting.connections.pusher.options.port'),
-            'wsEncrypted'  => config('broadcasting.connections.pusher.options.encrypted'),
+            'wsHost' => config('broadcasting.connections.pusher.options.host'),
+            'wsPort' => config('broadcasting.connections.pusher.options.port'),
+            'wsEncrypted' => config('broadcasting.connections.pusher.options.encrypted'),
         ]);
         ?>
     </script>
@@ -85,7 +85,11 @@
 
     @yield('content')
 </div>
-<script src="//{{config('broadcasting.connections.pusher.options.host')}}:{{config('broadcasting.connections.pusher.options.port')}}/socket.io/socket.io.js"></script>
+@if(config('broadcasting.connections.pusher.options.port'))
+    <script src="//{{config('broadcasting.connections.pusher.options.host')}}:{{config('broadcasting.connections.pusher.options.port')}}/socket.io/socket.io.js"></script>
+@else
+    <script src="//{{config('broadcasting.connections.pusher.options.host')}}/socket.io/socket.io.js"></script>
+@endif
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

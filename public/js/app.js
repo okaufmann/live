@@ -860,7 +860,7 @@ if (token) {
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
     broadcaster: 'socket.io',
-    host: window.Laravel.wsHost + ':' + window.Laravel.wsPort,
+    host: window.Laravel.wsHost + (window.Laravel.wsPort ? ':' + window.Laravel.wsPort : ""),
     encrypted: window.Laravel.wsEncrypted
 });
 

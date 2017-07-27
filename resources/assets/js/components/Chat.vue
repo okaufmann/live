@@ -10,9 +10,9 @@
             <div class="panel-body chat-content">
                 <ul class="chat">
                     <template v-for="message in messages">
-                        <li class="left clearfix" v-if="message.user.id === me.id">
+                        <li class="left clearfix" v-if="message.user.id !== me.id">
                             <span class="chat-img pull-left">
-                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar"
+                                <img src="https://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar"
                                      class="img-circle"/>
                             </span>
                             <div class="chat-body clearfix">
@@ -28,9 +28,9 @@
                                 </p>
                             </div>
                         </li>
-                        <li class="right clearfix" v-if="message.user.id !== me.id">
+                        <li class="right clearfix" v-if="message.user.id === me.id">
                             <span class="chat-img pull-right">
-                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar"
+                                <img src="https://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar"
                                      class="img-circle"/>
                             </span>
                             <div class="chat-body clearfix">

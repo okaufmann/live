@@ -43416,7 +43416,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('ul', {
     staticClass: "chat"
   }, [_vm._l((_vm.messages), function(message) {
-    return [(message.user.id === _vm.me.id) ? _c('li', {
+    return [(message.user.id !== _vm.me.id) ? _c('li', {
       staticClass: "left clearfix"
     }, [_vm._m(0, true), _vm._v(" "), _c('div', {
       staticClass: "chat-body clearfix"
@@ -43433,7 +43433,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "since": message.date,
         "auto-update": 60
       }
-    })], 1)]), _vm._v(" "), _c('p', [_vm._v("\n                                " + _vm._s(message.message) + "\n                            ")])])]) : _vm._e(), _vm._v(" "), (message.user.id !== _vm.me.id) ? _c('li', {
+    })], 1)]), _vm._v(" "), _c('p', [_vm._v("\n                                " + _vm._s(message.message) + "\n                            ")])])]) : _vm._e(), _vm._v(" "), (message.user.id === _vm.me.id) ? _c('li', {
       staticClass: "right clearfix"
     }, [_vm._m(1, true), _vm._v(" "), _c('div', {
       staticClass: "chat-body clearfix"
@@ -43496,7 +43496,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "img-circle",
     attrs: {
-      "src": "http://placehold.it/50/55C1E7/fff&text=U",
+      "src": "https://placehold.it/50/55C1E7/fff&text=U",
       "alt": "User Avatar"
     }
   })])
@@ -43506,7 +43506,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     staticClass: "img-circle",
     attrs: {
-      "src": "http://placehold.it/50/FA6F57/fff&text=ME",
+      "src": "https://placehold.it/50/FA6F57/fff&text=ME",
       "alt": "User Avatar"
     }
   })])

@@ -26,3 +26,7 @@ Change values in `laravel-echo-server.json`
 	"authEndpoint": "/broadcasting/auth"
 }
 ```
+
+## Demo
+
+See it in Action: https://live.mighty-code.com/

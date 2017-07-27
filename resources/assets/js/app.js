@@ -15,6 +15,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('presence', require('./components/Presence.vue'));
+Vue.component('server-status', require('./components/ServerStatus.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -7,5 +7,10 @@
                 <presence></presence>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <server-status></server-status>
+            </div>
+        </div>
     </div>
 @endsection

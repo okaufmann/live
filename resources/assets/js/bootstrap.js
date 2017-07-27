@@ -51,5 +51,10 @@ window.Echo = new Echo({
     broadcaster: 'socket.io',
     host: window.Laravel.wsHost + (window.Laravel.wsPort ? ':' + window.Laravel.wsPort : ""),
     encrypted: window.Laravel.wsEncrypted,
+    auth: {
+        headers: {
+            "Authorization": "Bearer " + window.Laravel.apiKey
+        }
+    },
 })
 ;

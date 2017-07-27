@@ -1,9 +1,9 @@
 <template>
     <div class="panel panel-default">
-        <div class="panel-heading">Example Component</div>
+        <div class="panel-heading">Presence and Events</div>
 
         <div class="panel-body">
-            <p class="lead">See whos here:</p>
+            <p class="lead">See who is here:</p>
 
             <ul>
                 <li v-for="user in users">{{user.name}}</li>

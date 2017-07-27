@@ -18,6 +18,10 @@
             'wsHost' => config('broadcasting.connections.pusher.options.host'),
             'wsPort' => config('broadcasting.connections.pusher.options.port'),
             'wsEncrypted' => config('broadcasting.connections.pusher.options.encrypted'),
+            // Newer make the following two key public, this just a demo!
+            'echoAppId' => config('services.echo_server.app_id'),
+            'echoAppKey' => config('services.echo_server.app_key'),
+            'apiKey' => auth()->check() ? auth()->user()->api_token : "",
         ]);
         ?>
     </script>

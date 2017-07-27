@@ -43472,6 +43472,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": (_vm.chatText)
     },
     on: {
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        _vm.sendMessage()
+      },
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.chatText = $event.target.value

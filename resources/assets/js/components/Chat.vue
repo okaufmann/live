@@ -51,7 +51,7 @@
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input id="btn-input" type="text" v-model="chatText" class="form-control input-sm"
+                    <input id="btn-input" type="text" v-model="chatText" @keyup.enter="sendMessage()" class="form-control input-sm"
                            placeholder="Type your message here..."/>
                     <span class="input-group-btn">
                             <button class="btn btn-warning btn-sm" id="btn-chat" @click="sendMessage()">Send</button>

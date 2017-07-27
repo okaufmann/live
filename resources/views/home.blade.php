@@ -4,12 +4,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <presence></presence>
+                <chat-client></chat-client>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <server-status></server-status>
+                <events></events>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {{--<server-status></server-status>--}}
             </div>
         </div>
     </div>

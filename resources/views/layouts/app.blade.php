@@ -21,6 +21,7 @@
             // Newer make the following two key public, this just a demo!
             'echoAppId' => config('services.echo_server.app_id'),
             'echoAppKey' => config('services.echo_server.app_key'),
+            'user' => auth()->check() ? auth()->user() : null,
             'apiKey' => auth()->check() ? auth()->user()->api_token : "",
         ]);
         ?>

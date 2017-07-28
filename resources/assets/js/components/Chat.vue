@@ -51,7 +51,8 @@
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input id="btn-input" type="text" v-model="chatText" @keyup.enter="sendMessage()" class="form-control input-sm"
+                    <input id="btn-input" type="text" v-model="chatText" @keyup.enter="sendMessage()"
+                           class="form-control input-sm"
                            placeholder="Type your message here..."/>
                     <span class="input-group-btn">
                             <button class="btn btn-warning btn-sm" id="btn-chat" @click="sendMessage()">Send</button>
@@ -99,6 +100,10 @@
             sendMessage() {
                 console.log("send message", this.chatText);
 
+                if (_.isEmpty(this.chatText)) {
+                    return;
+                }
+
                 axios.post('/api/send', {message: this.chatText}).then((result) => {
                     this.chatText = "";
                 });
@@ -141,9 +146,9 @@
         margin-right: 5px;
     }
 
-    .panel-body {
-        /*overflow-y: scroll;*/
-        /*height: 250px;*/
+    .panel-body.chat-content {
+        overflow-y: scroll;
+        height: 250px;
     }
 
     /*::-webkit-scrollbar-track {*/

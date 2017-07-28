@@ -43018,7 +43018,7 @@ exports = module.exports = __webpack_require__(46)(undefined);
 
 
 // module
-exports.push([module.i, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat-content {\n    min-height: 400px;\n}\n.chat li {\n    margin-bottom: 10px;\n    padding-bottom: 5px;\n    border-bottom: 1px dotted #B3A9A9;\n}\n.chat li.left .chat-body {\n    margin-left: 60px;\n}\n.chat li.right .chat-body {\n    margin-right: 60px;\n}\n.chat li .chat-body p {\n    margin: 0;\n    color: #777777;\n}\n.panel .slidedown .glyphicon, .chat .glyphicon {\n    margin-right: 5px;\n}\n.panel-body {\n    /*overflow-y: scroll;*/\n    /*height: 250px;*/\n}\n\n/*::-webkit-scrollbar-track {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar {*/\n/*width: 12px;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar-thumb {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/\n/*background-color: #555;*/\n/*}*/\n\n", ""]);
+exports.push([module.i, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat-content {\n    min-height: 400px;\n}\n.chat li {\n    margin-bottom: 10px;\n    padding-bottom: 5px;\n    border-bottom: 1px dotted #B3A9A9;\n}\n.chat li.left .chat-body {\n    margin-left: 60px;\n}\n.chat li.right .chat-body {\n    margin-right: 60px;\n}\n.chat li .chat-body p {\n    margin: 0;\n    color: #777777;\n}\n.panel .slidedown .glyphicon, .chat .glyphicon {\n    margin-right: 5px;\n}\n.panel-body.chat-content {\n    overflow-y: scroll;\n    height: 250px;\n}\n\n/*::-webkit-scrollbar-track {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar {*/\n/*width: 12px;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar-thumb {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/\n/*background-color: #555;*/\n/*}*/\n\n", ""]);
 
 // exports
 
@@ -43347,6 +43347,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43386,6 +43387,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             console.log("send message", this.chatText);
+
+            if (_.isEmpty(this.chatText)) {
+                return;
+            }
 
             axios.post('/api/send', { message: this.chatText }).then(function (result) {
                 _this2.chatText = "";

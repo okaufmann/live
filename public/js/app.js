@@ -43018,7 +43018,7 @@ exports = module.exports = __webpack_require__(46)(undefined);
 
 
 // module
-exports.push([module.i, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat-content {\n    min-height: 400px;\n}\n.chat li {\n    margin-bottom: 10px;\n    padding-bottom: 5px;\n    border-bottom: 1px dotted #B3A9A9;\n}\n.chat li.left .chat-body {\n    margin-left: 60px;\n}\n.chat li.right .chat-body {\n    margin-right: 60px;\n}\n.chat li .chat-body p {\n    margin: 0;\n    color: #777777;\n}\n.panel .slidedown .glyphicon, .chat .glyphicon {\n    margin-right: 5px;\n}\n.panel-body.chat-content {\n    overflow-y: scroll;\n    height: 250px;\n}\n\n/*::-webkit-scrollbar-track {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar {*/\n/*width: 12px;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar-thumb {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/\n/*background-color: #555;*/\n/*}*/\n\n", ""]);
+exports.push([module.i, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat-content {\n    min-height: 400px;\n}\n.chat li {\n    margin-bottom: 10px;\n    padding-bottom: 5px;\n    border-bottom: 1px dotted #B3A9A9;\n}\n.chat li.left .chat-body {\n    margin-left: 60px;\n}\n.chat li.right .chat-body {\n    margin-right: 60px;\n}\n.chat li .chat-body p {\n    margin: 0;\n    color: #777777;\n}\n.panel .slidedown .glyphicon, .chat .glyphicon {\n    margin-right: 5px;\n}\n.panel-body.chat-content {\n    overflow-y: scroll;\n    height: 250px;\n}\n\n", ""]);
 
 // exports
 
@@ -43348,6 +43348,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43404,22 +43411,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', {
+  return _c('div', [(_vm.users.length > 0) ? [_c('p', {
     staticClass: "lead"
-  }, [_vm._v("See who is here:")]), _vm._v(" "), _c('ul', _vm._l((_vm.users), function(user) {
+  }, [_vm._v("Currently present users: ")]), _vm._v(" "), _c('ul', _vm._l((_vm.users), function(user) {
     return _c('li', [_vm._v(_vm._s(user.name))])
-  })), _vm._v(" "), _c('div', {
+  }))] : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("Chat, Hello " + _vm._s(_vm.me.name))]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Hello " + _vm._s(_vm.me.name) + "! Type your message in below...")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body chat-content"
   }, [_c('ul', {
     staticClass: "chat"
   }, [_vm._l((_vm.messages), function(message) {
     return [(message.user.id !== _vm.me.id) ? _c('li', {
       staticClass: "left clearfix"
-    }, [_vm._m(0, true), _vm._v(" "), _c('div', {
+    }, [_vm._m(1, true), _vm._v(" "), _c('div', {
       staticClass: "chat-body clearfix"
     }, [_c('div', {
       staticClass: "header"
@@ -43436,7 +43443,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     })], 1)]), _vm._v(" "), _c('p', [_vm._v("\n                                " + _vm._s(message.message) + "\n                            ")])])]) : _vm._e(), _vm._v(" "), (message.user.id === _vm.me.id) ? _c('li', {
       staticClass: "right clearfix"
-    }, [_vm._m(1, true), _vm._v(" "), _c('div', {
+    }, [_vm._m(2, true), _vm._v(" "), _c('div', {
       staticClass: "chat-body clearfix"
     }, [_c('div', {
       staticClass: "header"
@@ -43494,8 +43501,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.sendMessage()
       }
     }
-  }, [_vm._v("Send")])])])])])])
+  }, [_vm._v("Send")])])])])])], 2)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "alert alert-warning"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "alert",
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")]), _vm._v("\n        Chat messages won't be persisted. If this window is reloaded, all messages are lost for you.\n    ")])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('span', {
     staticClass: "chat-img pull-left"
   }, [_c('img', {
@@ -43586,6 +43604,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43597,8 +43618,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         Echo.channel('messages').listen('HelloEvent', function (e) {
-            console.log(e);
-            _this.events.push(e);
+            var events = _this.events;
+            events.push(e);
+
+            //ensure at least 100 events.
+            events = _.reverse(events);
+            events = _.take(events, 100);
+            events = _.reverse(events);
+
+            _this.events = events;
         });
     }
 });
@@ -43616,11 +43644,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-body"
   }, [_c('p', {
     staticClass: "lead"
-  }, [_vm._v("Events")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('ul', _vm._l((_vm.events), function(event) {
-    return _c('li', [_vm._v(_vm._s(event.message))])
+  }, [_vm._v("Events")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('b', [_vm._v("Last " + _vm._s(_vm.events.length) + " Events:")]), _vm._v(" "), _c('ul', _vm._l((_vm.events), function(event) {
+    return _c('li', [_vm._v(_vm._s(event.message) + "\n                "), _c('span', [_vm._v("("), _c('timeago', {
+      attrs: {
+        "since": event.date,
+        "auto-update": 60
+      }
+    }), _vm._v(")")], 1)])
   }))])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("\n            Send events to all clients by visit "), _c('a', {
+  return _c('p', [_vm._v("\n            Send events to all connected clients by visit "), _c('a', {
     staticClass: "href",
     attrs: {
       "href": "/event"

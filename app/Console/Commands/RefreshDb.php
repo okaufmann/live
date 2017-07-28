@@ -37,6 +37,8 @@ class RefreshDb extends Command
      */
     public function handle()
     {
-        Artisan::call('migrate:fresh');
+        Artisan::call('migrate:fresh', [
+            '--force' => true,
+        ]);
     }
 }

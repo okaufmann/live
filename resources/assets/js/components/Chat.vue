@@ -1,11 +1,18 @@
 <template>
-    <div><p class="lead">See who is here:</p>
+    <div>
 
-        <ul>
-            <li v-for="user in users">{{user.name}}</li>
-        </ul>
+        <template v-if="users.length > 0">
+            <p class="lead">Currently present users: </p>
+            <ul>
+                <li v-for="user in users">{{user.name}}</li>
+            </ul>
+        </template>
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Chat messages won't be persisted. If this window is reloaded, all messages are lost for you.
+        </div>
         <div class="panel panel-default">
-            <div class="panel-heading">Chat, Hello {{me.name}}</div>
+            <div class="panel-heading">Hello {{me.name}}! Type your message in below...</div>
 
             <div class="panel-body chat-content">
                 <ul class="chat">
@@ -150,20 +157,5 @@
         overflow-y: scroll;
         height: 250px;
     }
-
-    /*::-webkit-scrollbar-track {*/
-    /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
-    /*background-color: #F5F5F5;*/
-    /*}*/
-
-    /*::-webkit-scrollbar {*/
-    /*width: 12px;*/
-    /*background-color: #F5F5F5;*/
-    /*}*/
-
-    /*::-webkit-scrollbar-thumb {*/
-    /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
-    /*background-color: #555;*/
-    /*}*/
 
 </style>

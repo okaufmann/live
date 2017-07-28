@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
@@ -15,6 +16,7 @@ class HelloEvent implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $message;
+    public $date;
 
     /**
      * Create a new event instance.
@@ -24,6 +26,7 @@ class HelloEvent implements ShouldBroadcastNow
     public function __construct($message)
     {
         $this->message = $message;
+        $this->date = Carbon::now()->toW3cString();
     }
 
     /**

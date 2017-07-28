@@ -54,7 +54,7 @@
                     &nbsp;
                 </ul>
                 <p class="navbar-text">
-                    Databse will be reset every 30 minutes!
+                    Database will be reset every 30 minutes!
                 </p>
 
                 <!-- Right Side Of Navbar -->

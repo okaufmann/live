@@ -17,8 +17,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('event', function () {
-    broadcast(new \App\Events\HelloEvent('blaa'));
+    Route::get('event/{events?}', function (\Illuminate\Http\Request $request) {
+        if ($request->events) {
+            $events = (int)$request->events;
+            $events = $events > 100 ? 100 : $events;
+
+            for ($i = 0; $i < $events; $i++) {
+                broadcast(new \App\Events\HelloEvent('hello'));
+            }
+        } else {
+            broadcast(new \App\Events\HelloEvent('hello'));
+        }
+    });
+
 });
+

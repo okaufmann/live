@@ -42776,8 +42776,6 @@ function bytesToSize(input, precision) {
         };
     },
     mounted: function mounted() {
-        console.log('Component mounted.');
-
         this.serverStatus();
     },
 
@@ -43020,7 +43018,7 @@ exports = module.exports = __webpack_require__(46)(undefined);
 
 
 // module
-exports.push([module.i, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat-content {\n    min-height: 400px;\n}\n.chat li {\n    margin-bottom: 10px;\n    padding-bottom: 5px;\n    border-bottom: 1px dotted #B3A9A9;\n}\n.chat li.left .chat-body {\n    margin-left: 60px;\n}\n.chat li.right .chat-body {\n    margin-right: 60px;\n}\n.chat li .chat-body p {\n    margin: 0;\n    color: #777777;\n}\n.panel .slidedown .glyphicon, .chat .glyphicon {\n    margin-right: 5px;\n}\n.panel-body {\n    /*overflow-y: scroll;*/\n    height: 250px;\n}\n\n/*::-webkit-scrollbar-track {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar {*/\n/*width: 12px;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar-thumb {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/\n/*background-color: #555;*/\n/*}*/\n\n", ""]);
+exports.push([module.i, "\n.chat {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n.chat-content {\n    min-height: 400px;\n}\n.chat li {\n    margin-bottom: 10px;\n    padding-bottom: 5px;\n    border-bottom: 1px dotted #B3A9A9;\n}\n.chat li.left .chat-body {\n    margin-left: 60px;\n}\n.chat li.right .chat-body {\n    margin-right: 60px;\n}\n.chat li .chat-body p {\n    margin: 0;\n    color: #777777;\n}\n.panel .slidedown .glyphicon, .chat .glyphicon {\n    margin-right: 5px;\n}\n.panel-body {\n    /*overflow-y: scroll;*/\n    /*height: 250px;*/\n}\n\n/*::-webkit-scrollbar-track {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar {*/\n/*width: 12px;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n\n/*::-webkit-scrollbar-thumb {*/\n/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/\n/*background-color: #555;*/\n/*}*/\n\n", ""]);
 
 // exports
 
@@ -43362,8 +43360,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
-        console.log('Component mounted.');
-
         Echo.join("chat").here(function (users) {
             _this.users = _.reject(users, function (user) {
                 return user.id === _this.me.id;
@@ -43582,6 +43578,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43591,8 +43590,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         var _this = this;
-
-        console.log('Component mounted.');
 
         Echo.channel('messages').listen('HelloEvent', function (e) {
             console.log(e);
@@ -43610,14 +43607,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("Presence and Events")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Global Events")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('p', {
     staticClass: "lead"
-  }, [_vm._v("Events")]), _vm._v(" "), _c('ul', _vm._l((_vm.events), function(event) {
-    return _c('li', [_vm._v(_vm._s(event))])
+  }, [_vm._v("Events")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('ul', _vm._l((_vm.events), function(event) {
+    return _c('li', [_vm._v(_vm._s(event.message))])
   }))])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', [_vm._v("\n            Send events to all clients by visit "), _c('a', {
+    staticClass: "href",
+    attrs: {
+      "href": "/event"
+    }
+  }, [_vm._v("/event")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

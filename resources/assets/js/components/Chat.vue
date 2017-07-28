@@ -73,8 +73,6 @@
             }
         },
         mounted() {
-            console.log('Component mounted.');
-
             Echo.join(`chat`)
                 .here((users) => {
                     this.users = _.reject(users, user => user.id === this.me.id);
@@ -145,7 +143,7 @@
 
     .panel-body {
         /*overflow-y: scroll;*/
-        height: 250px;
+        /*height: 250px;*/
     }
 
     /*::-webkit-scrollbar-track {*/

@@ -12,11 +12,13 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class HelloEvent implements ShouldBroadcastNow
+class HelloEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $message;
     public $date;
+
+    public $broadcastQueue = "messages";
 
     /**
      * Create a new event instance.

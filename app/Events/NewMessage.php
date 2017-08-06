@@ -23,6 +23,8 @@ class NewMessage implements ShouldBroadcastNow
 
     public $date;
 
+    public $brodcastQueue = 'messages';
+
     /**
      * Create a new event instance.
      *

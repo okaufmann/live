@@ -14,7 +14,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Hello {{me.name}}! Type your message in below...</div>
 
-            <div class="panel-body chat-content">
+            <div class="panel-body chat-content" id="chat-List">
                 <ul class="chat">
                     <template v-for="message in messages">
                         <li class="left clearfix" v-if="message.user.id !== me.id">
@@ -99,6 +99,9 @@
                 })
                 .listen('NewMessage', (e) => {
                     console.log(e);
+                    let container = this.$el.querySelector("#chat-List");
+                    container.scrollTop = container.scrollHeight;
+
                     this.messages.push(e);
                 });
             ;

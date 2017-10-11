@@ -23,7 +23,6 @@ Vue.use(VueTimeago, {
     }
 })
 
-
 Vue.component('events', require('./components/Events.vue'));
 Vue.component('server-status', require('./components/ServerStatus.vue'));
 Vue.component('chat-client', require('./components/Chat.vue'));

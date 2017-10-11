@@ -99,11 +99,10 @@
                 })
                 .listen('NewMessage', (e) => {
                     console.log(e);
-                    let container = this.$el.querySelector("#chat-container");
-                    let list = this.$el.querySelector("#chat-list");
-                    container.scrollTop = list.scrollHeight + 200;
-
                     this.messages.push(e);
+
+                    let container = this.$el.querySelector("#chat-container");
+                    container.scrollTop = container.scrollHeight + 200;
                 });
             ;
         },

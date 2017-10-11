@@ -14,8 +14,8 @@
         <div class="panel panel-default">
             <div class="panel-heading">Hello {{me.name}}! Type your message in below...</div>
 
-            <div class="panel-body chat-content" id="chat-List">
-                <ul class="chat">
+            <div class="panel-body chat-content" id="chat-container">
+                <ul class="chat" id="chat-list">
                     <template v-for="message in messages">
                         <li class="left clearfix" v-if="message.user.id !== me.id">
                             <span class="chat-img pull-left">
@@ -99,8 +99,9 @@
                 })
                 .listen('NewMessage', (e) => {
                     console.log(e);
-                    let container = this.$el.querySelector("#chat-List");
-                    container.scrollTop = container.scrollHeight;
+                    let container = this.$el.querySelector("#chat-container");
+                    let list = this.$el.querySelector("#chat-list");
+                    container.scrollTop = list.scrollHeight;
 
                     this.messages.push(e);
                 });

@@ -101,7 +101,7 @@
                     console.log(e);
                     let container = this.$el.querySelector("#chat-container");
                     let list = this.$el.querySelector("#chat-list");
-                    container.scrollTop = list.scrollHeight;
+                    container.scrollTop = list.scrollHeight + 200;
 
                     this.messages.push(e);
                 });

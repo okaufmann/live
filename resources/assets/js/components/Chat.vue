@@ -101,8 +101,10 @@
                     console.log(e);
                     this.messages.push(e);
 
-                    let container = this.$el.querySelector("#chat-container");
-                    container.scrollTop = container.scrollHeight + 200;
+                    setTimeout(() => {
+                        let container = this.$el.querySelector("#chat-container");
+                        container.scrollTop = container.scrollHeight + 200;
+                    }, 200);
                 });
             ;
         },

@@ -22,18 +22,32 @@ Add proxy config to NGINX Host config:
 # FORGE CONFIG (DOT NOT REMOVE!)
 include forge-conf/youredomain/server/*;
 
-{place the following here}
-``` 
+server {
+        // ...
+        
+        charset utf-8;
 
-```
-location / {
+        # FORGE CONFIG (DOT NOT REMOVE!)
+        include forge-conf/ws.live.mighty-code.com/server/*;
+
+        location / {
         proxy_pass http://127.0.0.1:6001;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
-    }
+        }
+
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location = /robots.txt  { access_log off; log_not_found off; }
+
+        access_log off;
+        error_log  /var/log/nginx/ws.live.mighty-code.com-error.log error;
+
+        location ~ /\.(?!well-known).* {
+        deny all;
+}
 ```
 Special thanks to [Manuel](https://twitter.com/strebel_manuel) for the support.
 

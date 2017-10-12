@@ -104,7 +104,7 @@
                     setTimeout(() => {
                         let container = this.$el.querySelector("#chat-container");
                         container.scrollTop = container.scrollHeight + 200;
-                    }, 200);
+                    }, 100);
                 });
             ;
         },

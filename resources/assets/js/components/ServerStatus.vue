@@ -5,11 +5,11 @@
         <div class="panel-body">
             <dl class="dl-horizontal">
                 <dt>Subscriptions</dt>
-                <dd>.{{status.subscription_count}}</dd>
+                <dd>{{status.subscription_count}}</dd>
                 <dt>Uptime</dt>
-                <dd>.{{status.uptime}}</dd>
+                <dd>{{status.uptime}}</dd>
                 <dt>Memory</dt>
-                <dd>.{{memoryUsage}}</dd>
+                <dd>{{memoryUsage}}</dd>
             </dl>
         </div>
     </div>
@@ -37,9 +37,7 @@
         methods: {
             serverStatus: function () {
                 this.echoRequest('status').then((data) => {
-                    console.log(data.data);
-                    let status = data.data;
-                    this.status = status;
+                    this.status = data;
                     setTimeout(this.serverStatus, 2000);
                 });
             },
@@ -52,12 +50,7 @@
                 url = protocol + "://" + host + port + "/apps/" + appId + "/" + url + "?auth_key=" + appKey;
 
                 console.log("get data from echo server api ", url);
-
-                // create custom instance to be modified.
-                let ax = axios.create();
-                // remove bearer token since, express will try to login otherwise...
-                delete ax.defaults.headers.common['Authorization'];
-                return ax.get(url);
+                return $.get(url);
             }
         },
         computed: {
@@ -71,7 +64,7 @@
                 let heap = bytesToSize(m.heapUsed, 3);
                 let total = bytesToSize(m.heapTotal, 3);
 
-                let usage = rss + " (Rss); Heap: " + heap + ", of total: " + total;
+                let usage = "total: " + total + " (Rss: " + rss + " / Heap: " + heap + ")";
                 return usage;
             }
         }

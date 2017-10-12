@@ -53,7 +53,11 @@
 
                 console.log("get data from echo server api ", url);
 
-                return axios.get(url);
+                // create custom instance to be modified.
+                let ax = axios.create();
+                // remove bearer token since, express will try to login otherwise...
+                delete ax.defaults.headers.common['Authorization'];
+                return ax.get(url);
             }
         },
         computed: {

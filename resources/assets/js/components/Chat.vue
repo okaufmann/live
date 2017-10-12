@@ -116,8 +116,12 @@
                     return;
                 }
 
-                axios.post('/api/send', {message: this.chatText}).then((result) => {
-                    this.chatText = "";
+                axios.post('/api/send', {message: this.chatText}).then((result, status) => {
+                    if (status === 429) {
+                        alert("You reached the limit of sent messages! Please wait a minute...");
+                    } else {
+                        this.chatText = "";
+                    }
                 });
             }
         }

@@ -53,17 +53,11 @@
                 <ul class="nav navbar-nav">
                     &nbsp;
                 </ul>
-                <p class="navbar-text">
-                    Database will be reset every 30 minutes!
-                </p>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
-                    @else
+                    @auth
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
@@ -72,20 +66,13 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a href="{{ route('logout') }}">
                                         Logout
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
                                 </li>
                             </ul>
                         </li>
-                    @endif
+                    @endauth
                 </ul>
             </div>
         </div>

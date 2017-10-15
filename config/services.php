@@ -1,5 +1,10 @@
 <?php
-$echoConfig = json_decode(file_get_contents(base_path('/laravel-echo-server.json')), true);
+$base_path = base_path('/laravel-echo-server.json');
+$echoConfig = [];
+if (file_exists($base_path)) {
+    $echoConfig = json_decode(file_get_contents($base_path), true);
+}
+
 return [
 
     /*
@@ -35,7 +40,7 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
     'echo_server' => [
-        'app_id' => $echoConfig["clients"][0]["appId"],
-        'app_key' => $echoConfig["clients"][0]["key"],
+        'app_id' => array_get($echoConfig, "clients[0].appId"),
+        'app_key' => array_get($echoConfig, "clients[0].key"),
     ]
 ];

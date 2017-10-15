@@ -36,21 +36,15 @@
         },
         methods: {
             serverStatus: function () {
-                this.echoRequest('status').then((data) => {
-                    this.status = data;
+                this.getWsServerStatus().then((response) => {
+                    this.status = response.data;
                     setTimeout(this.serverStatus, 2000);
-                });
+                }).catch(() => setTimeout(this.serverStatus, 5000));
             },
-            echoRequest: function (url) {
-                let host = window.Laravel.wsHost
-                let port = window.Laravel.wsPort ? ':' + window.Laravel.wsPort : "";
-                let protocol = window.Laravel.wsEncrypted ? 'https' : 'http';
-                let appId = window.Laravel.echoAppId;
-                let appKey = window.Laravel.echoAppKey;
-                url = protocol + "://" + host + port + "/apps/" + appId + "/" + url + "?auth_key=" + appKey;
+            getWsServerStatus: function () {
+                let url = '/api/server_status';
 
-                console.log("get data from echo server api ", url);
-                return $.get(url);
+                return axios.get(url);
             }
         },
         computed: {

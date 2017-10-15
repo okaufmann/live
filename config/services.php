@@ -39,8 +39,9 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
     'echo_server' => [
-        'app_id' => array_get($echoConfig, "clients[0].appId"),
-        'app_key' => array_get($echoConfig, "clients[0].key"),
+        'app_id' => array_get($echoConfig, "clients.0.appId"),
+        'app_key' => array_get($echoConfig, "clients.0.key"),
     ]
 ];

@@ -26,5 +26,23 @@ Route::group(['middleware' => 'auth:api'], function () {
         broadcast(new NewMessage($user, $message));
         return response(201);
     });
+
+    Route::get('/server_status', function (Request $request) {
+        //http://localhost:6001/apps/undefined/status?auth_key=undefined
+        $host = config('broadcasting.connections.pusher.options.host');
+        $port = config('broadcasting.connections.pusher.options.port');
+        $port = $port ? ':'.$port : '';
+        $encrypted = config('broadcasting.connections.pusher.options.encrypted');
+        $protocol = $encrypted ? 'https://' : 'http://';
+        $appId = config('services.echo_server.app_id');
+        $appKey = config('services.echo_server.app_key');
+
+        $url = $protocol.$host.$port.'/apps/'.$appId.'/status?auth_key='.$appKey;
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->get($url, ['connect_timeout' => 1]);
+
+        return response((string)$response->getBody());
+    });
 });
 

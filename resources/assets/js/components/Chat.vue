@@ -4,7 +4,7 @@
         <template v-if="users.length > 0">
             <p class="lead">Currently present users: </p>
             <ul>
-                <li v-for="user in users">{{user.name}}</li>
+                <li v-for="user in users">{{user.username}}</li>
             </ul>
         </template>
         <div class="alert alert-warning">

@@ -75,7 +75,7 @@ Install npm dependencies using yarn and compile assets
 yarn && yarn run dev
 ```
 
-Start laravel-echo-server as daemon with pm2:
+Start laravel-echo-server as daemon with supervisord or pm2(needs more memory but is scalable):
 
 ```commandline
 npm install -g pm2

@@ -9,8 +9,8 @@
             </p>
             <b>Last {{events.length}} Events:</b>
             <ul>
-                <li v-for="event in events">{{event.message}}
-                    <span>(<timeago :since="event.date" :auto-update="60"></timeago>)</span>
+                <li v-for="(index, event) in events">{{event.message}}
+                    <span>{{index}}(<timeago :since="event.date" :auto-update="60"></timeago>)</span>
                 </li>
             </ul>
         </div>

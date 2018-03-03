@@ -30,15 +30,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-    Route::get('event/{events?}', function (\Illuminate\Http\Request $request) {
-        $events = (int)$request->input('events', 1);
+    Route::get('event/{events}', function (\Illuminate\Http\Request $request, $events) {
         $events = min(100, $events);
 
         for ($i = 0; $i < $events; $i++) {
             $hash = \Hash::make(time() * random_int(0, 9999));
             broadcast(new \App\Events\HelloEvent($hash));
         }
-    });
-
+    })->where(['events' => '[0-9]+']);
 });
 

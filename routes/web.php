@@ -34,8 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
         $events = min(100, $events);
 
         for ($i = 0; $i < $events; $i++) {
-            $hash = \Hash::make(time() * random_int(0, 9999));
-            broadcast(new \App\Events\HelloEvent($hash));
+            broadcast(new \App\Events\HelloEvent($i.'-'.time()));
         }
     })->where(['events' => '[0-9]+']);
 });

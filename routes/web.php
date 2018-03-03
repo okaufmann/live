@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 // Authentication Routes...
 //$this->get('login', 'Auth\RegisterController@showLoginForm')->name('login');
@@ -31,15 +31,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
     Route::get('event/{events?}', function (\Illuminate\Http\Request $request) {
-        if ($request->events) {
-            $events = (int)$request->events;
-            $events = $events > 100 ? 100 : $events;
+        $events = (int)$request->input('events', 1);
+        $events = min(100, $events);
 
-            for ($i = 0; $i < $events; $i++) {
-                broadcast(new \App\Events\HelloEvent('hello'));
-            }
-        } else {
-            broadcast(new \App\Events\HelloEvent('hello'));
+        for ($i = 0; $i < $events; $i++) {
+            $hash = \Hash::make(time() * random_int(0, 9999));
+            broadcast(new \App\Events\HelloEvent($hash));
         }
     });
 
